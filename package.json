@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev" : "nodemon --env-file=.env.development app",
-    "prod" : "nodemon --env-file=.env.production app",
+    "prod" : "node --env-file=.env.production app",
     "start" : "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
