@@ -1,0 +1,31 @@
+let GetAllOrder = async(req, res)=>{
+    let result = await Order.find().populate("user_id").populate("product_id").exec();
+    res.send(result);
+}
+let GetAllPlacedOrder = async(req, res)=>{
+    let result = await Order.find({status : 1}).populate("user_id").populate("product_id").exec();
+    res.send(result);
+}
+let GetAllShippedOrder = async(req, res)=>{
+    let result = await Order.find({status : 2}).populate("user_id").populate("product_id").exec();
+    res.send(result);
+}
+let GetAllReceivedOrder = async(req, res)=>{
+    let result = await Order.find({status : 3}).populate("user_id").populate("product_id").exec();
+    res.send(result);
+}
+let GetAllCancledOrder = async(req, res)=>{
+    let result = await Order.find({status : 4}).populate("user_id").populate("product_id").exec();
+    res.send(result);
+}
+
+
+let UpdateOrderStatusById = async(req, res)=>{
+    let id = req.params.id;
+    let result = await Order.updateMany({_id : id }, req.body);
+    res.send({success : true, result});
+}
+
+
+
+--------------------- Order MOdel
